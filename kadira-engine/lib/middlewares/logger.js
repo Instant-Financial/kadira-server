@@ -1,4 +1,4 @@
-var SOURCE = require('os').hostname();
+/*var SOURCE = require('os').hostname();
 var PREFIX = process.env.LIBRATO_PREFIX || "";
 var EventLoopMonitor = require('evloop-monitor');
 
@@ -88,4 +88,4 @@ module.exports = function() {
       resetAt: Date.now()
     };
   }
-};
+};*/

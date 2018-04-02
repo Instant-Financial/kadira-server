@@ -14,10 +14,10 @@ if(process.env.FORWARD_URL) {
   app.use(forwarder(process.env.FORWARD_URL));
 }
 
-// add connect-ntp middleware, for the legacy support
-// this does not works everywhere because, this doesn't
-// works well with firewalls since this uses TCP over HTTP
-app.use(require('connect-ntp')());
+//// add connect-ntp middleware, for the legacy support
+//// this does not works everywhere because, this doesn't
+//// works well with firewalls since this uses TCP over HTTP
+//app.use(require('connect-ntp')());
 
 // new ntp middleware, simple sends the timestamp to the client
 // this works well with firewalls, this is plain old HTTP
@@ -76,7 +76,7 @@ function afterMongoURLConnected(err, db) {
     // ping middleware must be used after the authentication middleware
     app.use(require('./lib/middlewares/authenticate')(DBS.app));
     app.use(require('./lib/middlewares/ping')());
-    app.use(require('./lib/middlewares/logger')());
+//    app.use(require('./lib/middlewares/logger')());
     app.use('/jobs', require('./lib/middlewares/jobs')(DBS.app));
     require('./lib/controller')(app, DBS.app, DBS.metricsCluster);
 
