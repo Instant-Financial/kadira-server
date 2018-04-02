@@ -25,7 +25,7 @@ component.state.canShowAdminNotice = function() {
 component.state.canShowShareApp = function() {
   var appId = FlowRouter.getParam("appId");
   var app = Apps.findOne({_id: appId}, {fields: {owner: 1}});
-  return !!app;
+  return !!app && Meteor.user().admin;
 };
 
 component.state.canShowAlertsNav = function() {
@@ -37,5 +37,5 @@ component.state.canShowAlertsNav = function() {
 component.state.canShowSeetingsTab = function() {
   var appId = FlowRouter.getParam("appId");
   var app = Apps.findOne({_id: appId}, {fields: {owner: 1}});
-  return !!app;
+  return !!app && Meteor.user().admin;
 };
